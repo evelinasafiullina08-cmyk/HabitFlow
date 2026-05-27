@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HabitFlow+ | Корзина</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="logo"><i class="fas fa-seedling"></i> HabitFlow+</div>
+        <button class="burger" id="burgerBtn"><i class="fas fa-bars"></i></button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> Профиль</a></li>
+            <li><a href="admin.html"><i class="fas fa-shield-alt"></i> Админ</a></li>
+            <li class="close-burger" id="closeBurger"><i class="fas fa-times"></i></li>
+        </ul>
+        <div style="display: flex; gap: 12px;">
+            <button id="themeSwitch" class="theme-toggle"><i class="fas fa-moon"></i> Тема</button>
+            <a href="cart.html" class="btn-outline active"><i class="fas fa-shopping-cart"></i> Корзина <span id="cartCount">0</span></a>
+        </div>
+    </nav>
+    <main>
+        <div class="cart-page">
+            <h1><i class="fas fa-shopping-basket"></i> Моя корзина</h1>
+            <div id="cartItemsList" class="cart-items-list"></div>
+            <div class="cart-calculator">
+                <h4><i class="fas fa-calculator"></i> Калькулятор скидки</h4>
+                <div class="calc-inputs">
+                    <input type="number" id="calcQty" placeholder="Кол-во" value="1">
+                    <input type="number" id="calcPrice" placeholder="Цена" value="0">
+                    <input type="number" id="calcDisc" placeholder="Скидка %" value="0">
+                </div>
+                <div class="calc-buttons">
+                    <button id="applyCalcDemo" class="btn-primary">К первому товару</button>
+                    <button id="applyToAll" class="btn-outline">Ко всем товарам</button>
+                </div>
+                <div class="calc-total"><strong>Стоимость со скидкой: <span id="calcDemoResult">0</span> ₽</strong></div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total"><span>Общая сумма:</span><span id="cartTotal">0</span></div>
+                <div class="cart-actions">
+                    <button id="clearCartBtn" class="btn-outline">Очистить корзину</button>
+                    <button id="checkoutBtn" class="btn-primary">Оформить заказ</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer><p><i class="fas fa-heart"></i> Проектирование здоровых привычек — 2026</p></footer>
+</div>
+<!-- Вместо 4 скриптов, теперь только один -->
+<script src="js/main.js"></script>
+</body>
+</html>

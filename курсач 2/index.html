@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>HabitFlow+ | Главная</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="logo"><i class="fas fa-seedling"></i> HabitFlow+</div>
+        <button class="burger" id="burgerBtn"><i class="fas fa-bars"></i></button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">Главная</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> Профиль</a></li>
+            <li><a href="admin.html"><i class="fas fa-shield-alt"></i> Админ</a></li>
+            <li class="close-burger" id="closeBurger"><i class="fas fa-times"></i></li>
+        </ul>
+        <div style="display: flex; gap: 12px;">
+            <button id="themeSwitch" class="theme-toggle"><i class="fas fa-moon"></i> Тема</button>
+            <a href="cart.html" id="cartIconBtn" class="btn-outline"><i class="fas fa-shopping-cart"></i> Корзина <span id="cartCount">0</span></a>
+        </div>
+    </nav>
+    <main>
+        <!-- Видео-герой -->
+        <div class="video-hero animate-fade-in">
+            <video class="video-bg" autoplay muted loop playsinline>
+                <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay">
+                <div class="hero-content">
+                    <h1>Формируй привычки осознанно</h1>
+                    <p>Персональный трекер, курсы и сообщество</p>
+                    <a href="catalog.html" class="hero-btn">Начать путь <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Преимущества -->
+        <div class="features-grid">
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Отслеживай прогресс</h3>
+                <p>Веди статистику своих привычек и наблюдай за улучшениями каждый день</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><i class="fas fa-users"></i></div>
+                <h3>Поддержка сообщества</h3>
+                <p>Общайся с единомышленниками, делись успехами и получай поддержку</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><i class="fas fa-gamepad"></i></div>
+                <h3>Геймификация</h3>
+                <p>Зарабатывай баллы, получай достижения и соревнуйся с друзьями</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                <h3>Научный подход</h3>
+                <p>Методики, основанные на исследованиях в области психологии привычек</p>
+            </div>
+        </div>
+        
+        <!-- Статистика -->
+        <div class="stats-grid animate-on-scroll">
+            <div><div class="stat-number">10,000+</div><div class="stat-label">Активных пользователей</div></div>
+            <div><div class="stat-number">50,000+</div><div class="stat-label">Выработанных привычек</div></div>
+            <div><div class="stat-number">98%</div><div class="stat-label">Положительных отзывов</div></div>
+            <div><div class="stat-number">24/7</div><div class="stat-label">Поддержка</div></div>
+        </div>
+        
+        <!-- Отзывы -->
+        <div class="reviews-grid">
+            <div class="review-card animate-on-scroll">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"За месяц использования трекера я наконец-то начала вставать в 6 утра и делать зарядку."</p>
+                <div class="review-author"><i class="fas fa-user-circle"></i><div><strong>Мария Иванова</strong><span> • 3 месяца</span></div></div>
+            </div>
+            <div class="review-card animate-on-scroll">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Марафон «Осознанное утро» изменил мою жизнь. Теперь утро — моё любимое время."</p>
+                <div class="review-author"><i class="fas fa-user-circle"></i><div><strong>Алексей Смирнов</strong><span> • 6 месяцев</span></div></div>
+            </div>
+            <div class="review-card animate-on-scroll">
+                <div class="review-stars">★★★★☆</div>
+                <p class="review-text">"Отличный сервис, удобный интерфейс. Хотелось бы больше бесплатных курсов."</p>
+                <div class="review-author"><i class="fas fa-user-circle"></i><div><strong>Елена Попова</strong><span> • 2 месяца</span></div></div>
+            </div>
+        </div>
+        
+        <!-- Как начать -->
+        <div class="howto-section animate-on-scroll">
+            <h2 class="howto-title"><i class="fas fa-rocket"></i> Как начать пользоваться сервисом</h2>
+            <div class="howto-steps">
+                <div class="step-card"><div class="step-number">1</div><h3>Создайте аккаунт</h3><p>Зарегистрируйтесь за 1 минуту через email или социальные сети.</p></div>
+                <div class="step-card"><div class="step-number">2</div><h3>Выберите привычки</h3><p>Пройдите короткий опрос или выберите из каталога готовые привычки.</p></div>
+                <div class="step-card"><div class="step-number">3</div><h3>Начните отслеживать</h3><p>Отмечайте выполненные действия каждый день.</p></div>
+                <div class="step-card"><div class="step-number">4</div><h3>Анализируйте прогресс</h3><p>Смотрите статистику и получайте рекомендации.</p></div>
+            </div>
+        </div>
+        
+        <!-- FAQ -->
+        <div class="faq-grid animate-on-scroll">
+            <div class="faq-item"><div class="faq-question"><span><i class="fas fa-question-circle"></i> Нужно ли платить?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Базовый функционал полностью бесплатен: вы можете отслеживать до 5 привычек одновременно.</div></div>
+            <div class="faq-item"><div class="faq-question"><span><i class="fas fa-question-circle"></i> Как отслеживать привычки?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Вы можете отмечать выполнение привычек в мобильном приложении или веб-версии одним нажатием.</div></div>
+            <div class="faq-item"><div class="faq-question"><span><i class="fas fa-question-circle"></i> Что делать, если пропустил день?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Ничего страшного! Главное — не бросать начатое. Вы можете продолжить серию с нового дня.</div></div>
+            <div class="faq-item"><div class="faq-question"><span><i class="fas fa-question-circle"></i> Есть ли приложение для телефона?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Да! Мы разработали приложения для iOS и Android. Скачать их можно в App Store и Google Play.</div></div>
+        </div>
+        
+        <!-- CTA Баннер -->
+        <div class="cta-banner animate-on-scroll">
+            <h2>Готов изменить свою жизнь?</h2>
+            <p>Присоединяйся к сообществу здоровых людей уже сегодня</p>
+            <a href="catalog.html" class="cta-btn">Перейти в каталог <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <!-- Табы -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="about"><i class="fas fa-info-circle"></i> О нас</button>
+            <button class="tab-btn" data-tab="team"><i class="fas fa-users"></i> Команда</button>
+            <button class="tab-btn" data-tab="contact"><i class="fas fa-envelope"></i> Контакты</button>
+        </div>
+        <div id="tab-about" class="tab-content active-tab">
+            <h2><i class="fas fa-leaf"></i> О нас</h2>
+            <p>Интерфейсное решение для здоровых привычек с учётом потребностей пользователей. Мы помогаем внедрять полезные ритуалы через геймификацию и поддержку. Наша миссия — сделать здоровый образ жизни доступным и увлекательным для каждого.</p>
+        </div>
+        <div id="tab-team" class="tab-content">
+            <div class="team-grid" id="teamGrid"></div>
+        </div>
+        <div id="tab-contact" class="tab-content">
+            <h3><i class="fas fa-address-card"></i> Контакты</h3>
+            <p><i class="fas fa-phone-alt"></i> +7 (999) 123-45-67</p>
+            <p><i class="fas fa-envelope"></i> hello@habitflow.ru</p>
+            <p><i class="fas fa-map-marker-alt"></i> Москва, ул. Здоровья, 5</p>
+        </div>
+    </main>
+    <footer><p><i class="fas fa-heart"></i> Проектирование здоровых привычек — 2026</p></footer>
+</div>
+<!-- Вместо 4 скриптов, теперь только один -->
+<script src="js/main.js"></script>
+</body>
+</html>

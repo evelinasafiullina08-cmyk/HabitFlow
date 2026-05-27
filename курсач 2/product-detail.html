@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HabitFlow+ | Детали товара</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="logo"><i class="fas fa-seedling"></i> HabitFlow+</div>
+        <button class="burger" id="burgerBtn"><i class="fas fa-bars"></i></button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> Профиль</a></li>
+            <li><a href="admin.html"><i class="fas fa-shield-alt"></i> Админ</a></li>
+            <li class="close-burger" id="closeBurger"><i class="fas fa-times"></i></li>
+        </ul>
+        <div style="display: flex; gap: 12px;">
+            <button id="themeSwitch" class="theme-toggle"><i class="fas fa-moon"></i> Тема</button>
+            <a href="cart.html" class="btn-outline"><i class="fas fa-shopping-cart"></i> Корзина <span id="cartCount">0</span></a>
+        </div>
+    </nav>
+    <main id="productDetailMain"></main>
+    <footer><p><i class="fas fa-heart"></i> Проектирование здоровых привычек — 2026</p></footer>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
