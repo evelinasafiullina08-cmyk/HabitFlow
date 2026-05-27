@@ -65,7 +65,7 @@ function addToCart(id, name, price, quantity = 1) {
     }
     saveCartToLocalStorage();
     updateCartCount();
-    updateCartTotal();
+    if (typeof updateCartTotal === 'function') updateCartTotal();
     showToast("Добавлено: " + name);
 }
 
@@ -87,7 +87,7 @@ function clearCart() {
         cart = [];
         saveCartToLocalStorage();
         updateCartCount();
-        updateCartTotal();
+        if (typeof updateCartTotal === 'function') updateCartTotal();
         if (document.getElementById("cartItemsList")) renderCartPage();
         showToast("Корзина очищена");
     }
@@ -99,7 +99,7 @@ function renderCartPage() {
     
     if (cart.length === 0) {
         container.innerHTML = '<div class="empty-cart"><i class="fas fa-shopping-basket"></i><p>Корзина пуста</p><a href="catalog.html" class="btn-primary">Перейти в каталог</a></div>';
-        updateCartTotal();
+        if (typeof updateCartTotal === 'function') updateCartTotal();
         return;
     }
     
@@ -134,7 +134,7 @@ function renderCartPage() {
                 item.quantity++;
                 saveCartToLocalStorage();
                 updateCartCount();
-                updateCartTotal();
+                if (typeof updateCartTotal === 'function') updateCartTotal();
                 renderCartPage();
             }
         });
@@ -153,7 +153,7 @@ function renderCartPage() {
                 }
                 saveCartToLocalStorage();
                 updateCartCount();
-                updateCartTotal();
+                if (typeof updateCartTotal === 'function') updateCartTotal();
                 renderCartPage();
             }
         });
@@ -166,12 +166,12 @@ function renderCartPage() {
             cart = cart.filter(i => i.id !== id);
             saveCartToLocalStorage();
             updateCartCount();
-            updateCartTotal();
+            if (typeof updateCartTotal === 'function') updateCartTotal();
             renderCartPage();
         });
     });
     
-    updateCartTotal();
+    if (typeof updateCartTotal === 'function') updateCartTotal();
 }
 
 function initCartPage() {
@@ -193,7 +193,7 @@ function initCartPage() {
                 cart = [];
                 saveCartToLocalStorage();
                 updateCartCount();
-                updateCartTotal();
+                if (typeof updateCartTotal === 'function') updateCartTotal();
                 renderCartPage();
             } else {
                 showToast("Корзина пуста");
@@ -226,7 +226,7 @@ function initCartPage() {
                 let newPrice = (parseInt(priceI?.value) || 0) * (1 - (parseInt(discI?.value) || 0) / 100);
                 cart[0].price = parseFloat(newPrice.toFixed(2));
                 saveCartToLocalStorage();
-                updateCartTotal();
+                if (typeof updateCartTotal === 'function') updateCartTotal();
                 renderCartPage();
                 showToast("Цена первого товара обновлена");
             } else {
@@ -243,7 +243,7 @@ function initCartPage() {
                     cart[i].price = parseFloat((cart[i].price * (1 - discount)).toFixed(2));
                 }
                 saveCartToLocalStorage();
-                updateCartTotal();
+                if (typeof updateCartTotal === 'function') updateCartTotal();
                 renderCartPage();
                 showToast("Скидка применена ко всем товарам");
             } else {
@@ -379,8 +379,11 @@ function renderProductDetailPage() {
     const productId = parseInt(urlParams.get('id'));
     const product = products.find(p => p.id === productId);
     
+    const mainElement = document.getElementById("productDetailMain");
+    if (!mainElement) return;
+    
     if (!product) {
-        document.getElementById("productDetailMain").innerHTML = '<div class="no-results"><i class="fas fa-box-open"></i><h3>Товар не найден</h3><a href="catalog.html" class="btn-primary">Вернуться в каталог</a></div>';
+        mainElement.innerHTML = '<div class="no-results"><i class="fas fa-box-open"></i><h3>Товар не найден</h3><a href="catalog.html" class="btn-primary">Вернуться в каталог</a></div>';
         return;
     }
     
@@ -447,8 +450,7 @@ function renderProductDetailPage() {
         </div>
     `;
     
-    const mainElement = document.getElementById("productDetailMain");
-    if (mainElement) mainElement.innerHTML = html;
+    mainElement.innerHTML = html;
     
     document.getElementById("backToCatalog")?.addEventListener("click", function() {
         window.location.href = "catalog.html";
@@ -994,6 +996,7 @@ function attachAdminEvents() {
             if (confirm("Удалить товар?")) {
                 const id = parseInt(this.dataset.id);
                 adminProducts = adminProducts.filter(p => p.id !== id);
+                // Sync with products array
                 products.length = 0;
                 for (let j = 0; j < adminProducts.length; j++) {
                     products.push(adminProducts[j]);
@@ -1043,7 +1046,8 @@ function attachAdminEvents() {
                 rating: 4.5,
                 stock: parseInt(document.getElementById("editStock").value),
                 imgUrl: document.getElementById("editImgUrl").value,
-                specs: {}
+                specs: {},
+                reviews: []
             };
             if (id) {
                 const index = adminProducts.findIndex(p => p.id === parseInt(id));
@@ -1051,6 +1055,7 @@ function attachAdminEvents() {
             } else {
                 adminProducts.push(newProduct);
             }
+            // Sync with products array
             products.length = 0;
             for (let j = 0; j < adminProducts.length; j++) {
                 products.push(adminProducts[j]);
@@ -1078,7 +1083,7 @@ function showToast(msg) {
         t.style.opacity = "0";
         t.style.transform = "translateX(-100px)";
         t.style.transition = "all 0.3s ease";
-        setTimeout(function() { t.remove(); }, 300);
+        setTimeout(function() { if(t.parentNode) t.remove(); }, 300);
     }, 2200);
 }
 
@@ -1166,7 +1171,7 @@ function renderTeamSection() {
         const m = team[i];
         html += `
             <div class="team-card">
-                <div class="team-photo"><img src="${m.img}" alt="${escapeHtml(m.name)}"></div>
+                <div class="team-photo"><img src="${m.img}" alt="${escapeHtml(m.name)}" onerror="this.src='https://placehold.co/400x400/e8f3e8/2d6a4f?text=${escapeHtml(m.name.charAt(0))}'"></div>
                 <div class="team-name">${escapeHtml(m.name)}</div>
                 <div class="team-role">${escapeHtml(m.role)}</div>
                 <div class="team-bio">${escapeHtml(m.bio)}</div>
